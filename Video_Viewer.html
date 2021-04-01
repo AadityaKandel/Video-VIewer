@@ -1,0 +1,154 @@
+
+<html>
+<head>
+	<title>
+		Youtube Video Viewer By AK
+	</title>
+</head>
+
+<style> 
+
+.maker{
+	text-align: center;
+}
+
+#bye{
+	text-align: center;
+	color: black;
+	padding: 14px;
+	font-family: New Tegomin;
+	font-size: 20px;
+	border-radius: 20px;
+	border-color: white;
+}
+
+#hello{
+	border-color: blue;
+	width: 1230px;
+	height: 10px;
+	font-family: comicsansms;
+	font-size: 30px;
+	padding: 16px;
+	text-align: center;
+	color: black;
+	transition: 0.5s;
+	font-style: italic;
+}
+
+#hello:hover{
+	padding: 18px;
+}
+
+.dooner{
+background-color: black;
+}
+
+.mainn{
+	background-color: #3997c1;
+}
+
+</style>
+
+<script type="text/javascript">
+
+	function getter(){
+		c = document.getElementById('bye');
+        c.setAttribute('onclick','clearr()');
+        document.getElementById('bye').innerHTML = "Clear It";
+	}
+
+	function performer(){
+
+		var a = document.getElementById('hello').value;
+        b = document.getElementById('player');
+
+		b.setAttribute('src',a);
+
+		getter()
+	}
+
+    function doit() {
+
+    	a = document.getElementById('hello').value;
+
+        if (a.indexOf('.mp4') > -1) {
+
+        	performer()
+
+        } else if (a.indexOf('channel=') > -1){
+
+        	let bb = a.substring(0,a.indexOf('&'));
+        	let dd = bb.replace('watch?v=','embed/');
+	        gh = document.getElementById('player');
+
+			gh.setAttribute('src',dd);
+			getter()
+
+
+        } else if (a.indexOf('watch?v=') > -1){
+
+        	let cc = a.replace('watch?v=','embed/');
+        	ghh = document.getElementById('player');
+
+        	gh.setAttribute('src',cc)
+        	getter()
+
+        } else {
+        	alert('Your Video File Is Not Supported\nOnly .Mp4 File Is Supported')
+        }
+    }
+
+	   //  } else if (a.indexOf('youtube.com/embed/') > -1) {
+
+	   //  	performer()
+
+	   //  } else if (a.indexOf('https://www.youtube.com/watch?v=') >-1) {
+	   //  	alert('Youtube Video Link Must Be In This Way\n\nFor Example: https://www.youtube.com/watch?v=2Vv-BfVoq4g\n                     https://www.youtube.com/embed/2Vv-BfVoq4g\n\nRemove The watchv= and replace it to embed')
+	   //  } else {
+	   //  	alert('Your Video File Is Not Supported\nOnly .Mp4 File Is Supported')
+	   //  }
+    // }
+
+    function clearr(){
+
+    	d = document.getElementById('player');
+    	d.removeAttribute('src');
+
+    	e = document.getElementById('bye');
+        e.setAttribute('onclick','doit()')
+        document.getElementById('bye').innerHTML = "Watch That Video";
+
+    }
+
+</script> 
+
+<body>
+
+<input placeholder="Youtube Video Link Or Your Video Directory Here..." id="hello" name="link">
+
+<br>
+<br>
+
+<div class="mainn">
+
+<div class="maker">
+
+<button id="bye" onclick="doit()">
+
+Watch That Video
+
+</button>
+
+</div>
+
+<br>
+
+<div class="doneer" align="center">
+<iframe id="player" width="711" height="400" allowfullscreen frameborder="0"></iframe>
+
+</div>
+<br><br><br><br>
+</div>
+
+</body>
+</html>
